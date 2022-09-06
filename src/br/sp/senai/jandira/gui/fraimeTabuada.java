@@ -3,11 +3,17 @@ package br.sp.senai.jandira.gui;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+
+import br.sp.senai.jandira.Tabuada;
 
 public class fraimeTabuada {
 	
@@ -32,10 +38,8 @@ public class fraimeTabuada {
 	// Criação das fontes \\
 		
 		Font fonteTitulo = new Font("SansSerif", Font.BOLD, 17);
-		Font fonteSubTitulo = new Font("SansSerif", Font.BOLD, 12);
 		Font fonteRotulos = new Font("SansSerif", Font.BOLD, 15);
 		Font fonteTextfiled = new Font("SansSerif", Font.BOLD, 15);
-		
 		
 		
 	// criando os rotulos com o Jlabel \\
@@ -48,10 +52,12 @@ public class fraimeTabuada {
 		
 		JLabel subTitulo = new JLabel();
 		subTitulo.setText(" Com a tabuada 1.0 seus problemas acabarm."
-		+ "Calcule a tabuada que desejar em segundos!!");
-		subTitulo.setBounds(120, 5, 700, 150);
+		+ " Calcule a tabuada ");
+		subTitulo.setBounds(120, 5, 370, 150);
 		subTitulo.setForeground(Color.gray);
-		
+		JLabel continuação = new JLabel("que desejar em segundos!!");
+		continuação.setBounds(122, 20, 200, 150);
+		continuação.setForeground(Color.gray);
 		
 		
 		JLabel rotuloMultiplicando = new JLabel();
@@ -75,8 +81,14 @@ public class fraimeTabuada {
 		rotuloResultado.setFont(fonteRotulos);
 		
 		
+	// criando a caixa para aparecer o resultado \\
+		
+		JList<String> resultadoTabuada = new JList();
+		JScrollPane caixaResultado = new JScrollPane(resultadoTabuada);
+		caixaResultado.setBounds(10, 380, 500, 220);
 		
 		
+	
 	// Criando as caixas de entrada com jtextfiled \\
 		
 		JTextField textfiledMultiplicando = new JTextField();
@@ -105,16 +117,17 @@ public class fraimeTabuada {
 		buttonLimpar.setFont(fonteTextfiled);
 		
 		
-		
-		
+	// colocando os atributos no container \\
 		
 		painel.add(tituloPrincipal);
 		painel.add(subTitulo);
+		painel.add(continuação);
 		painel.add(rotuloMultiplicando);
 		painel.add(rotuloMinMultiplicador);
 		painel.add(rotuloMaxMultiplicador);
 		painel.add(rotuloResultado);
 		
+		painel.add(caixaResultado);
 		
 		painel.add(textfiledMultiplicando);
 		painel.add(textFieldMinMultiplicador);
@@ -124,6 +137,25 @@ public class fraimeTabuada {
 		painel.add(buttonLimpar);
 		
 		tela.setVisible(true);
+		
+		buttonCalcular.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Tabuada tabuada = new Tabuada();
+				tabuada.numeroMultiplicado = Integer.parseInt(textfiledMultiplicando.getText());
+				tabuada.minMultiplicador = Integer.parseInt(textFieldMinMultiplicador.getText());
+				tabuada.maxMultiplicador = Integer.parseInt(textFieldMaxmultiplicador.getText());
+				
+				
+		
+				
+				
+				
+				
+			
+			}
+		});
 		
 		
 		
