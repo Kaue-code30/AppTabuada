@@ -6,20 +6,26 @@ public class Tabuada {
 	public int numeroMultiplicado;
 	public int minMultiplicador;
 	public int maxMultiplicador;
-	public ArrayList<String> conta = new ArrayList<>();
+	public ArrayList<String> resultadoTabuada = new ArrayList<>();
+	
+	
 	
 	
 	public int getresultado() {
 		return numeroMultiplicado * minMultiplicador;
 	}
+		
 	
-	public ArrayList<String> getTabuada() {
-		while (minMultiplicador < maxMultiplicador) {
-			conta.add(numeroMultiplicado + "x" + minMultiplicador + "=" + getresultado());
+	public ArrayList <String> getTabuada() {
+		while (minMultiplicador <= maxMultiplicador) {
+			resultadoTabuada.add(numeroMultiplicado + "x" + minMultiplicador + "=" + getresultado());
 			minMultiplicador++;
+			
 		}
-		return conta;
+		return resultadoTabuada;
 	}
+	
+	
 			
 			
 }

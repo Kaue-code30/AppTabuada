@@ -13,7 +13,7 @@ public class appTabuada {
 		fraimeTabuada tela = new fraimeTabuada();
 		tela.titulo = "Tabuada";
 		tela.altura = 650;
-		tela.largura = 530;
+		tela.largura = 510;
 		
 		
 			
